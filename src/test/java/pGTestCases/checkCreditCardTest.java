@@ -52,6 +52,7 @@ public class checkCreditCardTest extends BaseClass1{
 	public void tearDown()
 	{
 		driver.close();
+		System.out.println("Ji mata di");
 	}
 
 }
