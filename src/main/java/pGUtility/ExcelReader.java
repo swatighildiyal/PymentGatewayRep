@@ -11,7 +11,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 
 public class ExcelReader {
 	
-	public static String Test_Data_Path="F:\\Users\\ghildiyal\\eclipse-workspace\\Guru99PaymentGateway\\src\\main\\java\\pGUtility\\TestData_PaymentGateway.xlsx";
+	public static String Test_Data_Path="F:\\Users\\ghildiyal\\eclipse-workspace\\Guru99PaymentGateway\\src\\main\\java\\pGUtility\\TestData_PaymentGateway1 (1).xlsx";
 	static Workbook workBook;
 	static Sheet sheet;
 	

@@ -13,7 +13,7 @@ public class GenerateCardPage extends BaseClass1 {
 	
 	
 	@FindBy(xpath="//input[@class='button special']")
-	WebElement buyNow;
+	WebElement buyButton;
 	
 	
 	@FindBy(name="quantity")
@@ -32,24 +32,83 @@ public class GenerateCardPage extends BaseClass1 {
 	WebElement year;
 	
 	@FindBy(name="cvv_code")
-	WebElement cvv;
+	WebElement cvvCode;
 	
+	@FindBy(name="submit")
+	WebElement submitButton;
+	
+	@FindBy(xpath="//tr//td[2]//h3//strong")
+	WebElement orderID;
+	
+	
+	@FindBy(xpath="//div[@class='6u 12u$(small)'][2]/h3")
+	WebElement price;
+	
+	@FindBy(xpath="//div[@class='6u 12u$(xsmall)']/font[2]")
+	WebElement priceMainPage;
 	
 	public GenerateCardPage()
 	{
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void buyNow()
+	public void buyNow(String cardnum,String mon,String yr, String cv)
 	{
-		Select select=new Select(quantity);
-		select.selectByVisibleText("3");
-		buyNow.click();
-		Select select1=new Select(cardNumber);
+		cardNumber.sendKeys(cardnum);		
 		Select select2=new Select(month);
+		select2.selectByVisibleText(mon);
 		Select select3=new Select(year);
-		Select select5=new Select(cvv);
+		select3.selectByVisibleText(yr);
+		cvvCode.sendKeys(cv);
+		submitButton.click();
+		}
+	
+	public void validatePrice()
+	{
+		String[] price1=price.getText().split(":");
+		String price3=price1[1].trim();	
+		double homePagePrice=Double.valueOf(price3.replaceAll("[^a-zA-Z0-9]", " ").trim());		
+		Select select=new Select(quantity);
+		select.selectByVisibleText("4");
+		buyButton.click();	
+		String pricemain=priceMainPage.getText();			
+		double finalPagePrice=Double.valueOf(pricemain.replace("$", " ").trim());
+		System.out.println(homePagePrice);
+		System.out.println(finalPagePrice);
+		if(finalPagePrice%homePagePrice==0)
+		{
+			System.out.println("Cool");
+		}
+		else
+		{
+			System.out.println("Not cool, issue persist");
+		}
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		}
+	
+	
 	
 	}

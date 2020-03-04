@@ -3,13 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="pGTestCases.checkCreditCardTest">
+      <class name="pGTestCases.GenerateCardTest">
         <methods>
-          <include name="checkCreditCardLimit"/>
-          <include name="tearDown"/>
           <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="priceCheck"/>
         </methods>
-      </class> <!-- pGTestCases.checkCreditCardTest -->
+      </class> <!-- pGTestCases.GenerateCardTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
